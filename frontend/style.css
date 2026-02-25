@@ -1,0 +1,313 @@
+:root {
+    --bg-dark: #020617;
+    --panel-bg: #0f172a;
+    --border-color: rgba(255, 255, 255, 0.05);
+    --blue-accent: #2563eb;
+    --blue-hover: #3b82f6;
+    --text-main: #e2e8f0;
+    --text-muted: #64748b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+.header {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    background: var(--blue-accent);
+    padding: 8px;
+    border-radius: 12px;
+    display: flex;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+}
+
+.logo-area h1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logo-area h1 span {
+    color: var(--blue-accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(37, 99, 235, 0.3);
+}
+
+/* Buttons */
+
+.action-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    color: #64748b; /* Boz rəng - ikonlar üçün */
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background-color: #f1f5f9; /* Açıq boz fon */
+    color: #0f172a; /* Tünd rəng */
+}
+
+.action-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Sağ paneldəki "Kodu Kopyala" düyməsi */
+.btn-copy-fixed {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* İkon və yazı arasındakı məsafə */
+    background-color: transparent;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-copy-fixed:hover {
+    background-color: #f8fafc;
+    border-color: #94a3b8;
+    color: #0f172a;
+}
+
+.btn-copy-fixed:active {
+    transform: translateY(1px);
+}
+
+.btn-copy-fixed svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Kopyalandıqdan sonra yaşıl rəng effekti (Script ikon dəyişəndə vizual dəstək üçün) */
+.btn-copy-fixed .lucide-check {
+    color: #16a34a; /* Uğurlu əməliyyat rəngi */
+}
+
+.btn-primary {
+    background: var(--blue-accent);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--blue-hover);
+}
+
+.btn-primary:disabled {
+    background: #1e293b;
+    color: #475569;
+    cursor: not-allowed;
+}
+
+/* Grid */
+.main-grid {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+    .main-grid { grid-template-columns: 1fr; overflow-y: auto; }
+}
+
+/* Panels */
+.panel {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.panel-header {
+    background: rgba(15, 23, 42, 0.4);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.panel-actions {
+    display: flex;
+}
+
+.text-blue { color: var(--blue-hover); }
+
+.editor-container {
+    flex-grow: 1;
+    position: relative;
+}
+
+textarea {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    padding: 24px;
+    color: #cbd5e1;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    resize: none;
+    outline: none;
+}
+
+/* Scrollbar */
+textarea::-webkit-scrollbar { width: 6px; }
+textarea::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+
+/* States */
+.hidden { display: none !important; }
+.relative { position: relative; }
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+.loader {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.loader-large {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(37, 99, 235, 0.3);
+    border-top-color: var(--blue-accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 12px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 14px;
+}
+
+.error-msg {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    gap: 12px;
+    color: #fecaca;
+    font-size: 12px;
+}
+
+.footer {
+    padding: 16px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.footer p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}

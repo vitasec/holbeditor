@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holbeditor - Style & Doc Linter</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-area">
+                    <div class="logo-icon">
+                        <i data-lucide="code-2"></i>
+                    </div>
+                    <h1>Holb<span>editor</span></h1>
+                </div>
+                
+                <button id="fix-btn" class="btn-primary">
+                    <i data-lucide="wand-2" id="wand-icon"></i>
+                    <div class="loader hidden" id="loader"></div>
+                    <span id="btn-text">Format in Betty</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="main-grid">
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i data-lucide="code"></i>
+                        <span>Input your code</span>
+                    </div>
+                    <div class="panel-actions">
+                        <button class="action-btn" id="copy-input" title="Copy">
+                            <i data-lucide="copy"></i>
+                        </button>
+                        <button class="action-btn" id="clear-input" title="Clear">
+                            <i data-lucide="trash-2"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <textarea id="input-code" spellcheck="false" placeholder="Enter the C code here...">/* Paste the code here */
+#include <stdio.h>
+
+int main(void)
+{
+    printf("Hello, Holbeditor!\n");
+    return (0);
+}</textarea>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title text-blue">
+                        <i data-lucide="terminal"></i>
+                        <span>Formatted Code</span>
+                    </div>
+                    <button class="btn-copy-fixed hidden" id="copy-fixed">
+                        <i data-lucide="copy"></i>
+                        <span>Copy code</span>
+                    </button>
+                </div>
+                <div class="editor-container relative">
+                    <div id="loading-overlay" class="overlay hidden">
+                        <div class="overlay-content">
+                            <div class="loader-large"></div>
+                            <p>Formatting by Holbeditor...</p>
+                        </div>
+                    </div>
+                    
+                    <div id="placeholder-text" class="placeholder">
+						Press the button above to see the result
+                    </div>
+
+                    <textarea id="fixed-code" readonly spellcheck="false" placeholder="Formatted code will be displayed here..."></textarea>
+                    
+                    <div id="error-box" class="error-msg hidden">
+                        <i data-lucide="alert-circle"></i>
+                        <p id="error-text"></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p><i data-lucide="info"></i> HOLBEDITOR • STYLE & DOC LINTER</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

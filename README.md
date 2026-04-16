@@ -2,7 +2,7 @@
 
 A web-based C code formatter built around the [Betty](https://github.com/alx-tools/Betty) style standard. Paste your C code, hit the button, get back clean, Betty-compliant output — no CLI required.
 
-![stack](https://img.shields.io/badge/backend-Python%20Flask-blue) ![stack](https://img.shields.io/badge/frontend-HTML%20%2F%20JS-yellow) ![formatter](https://img.shields.io/badge/formatter-bettyfixer-green)
+![stack](https://img.shields.io/badge/backend-Python%20Flask-blue) ![stack](https://img.shields.io/badge/frontend-HTML%20%2F%20JS-yellow) ![formatter](https://img.shields.io/badge/formatter-bettyfixer-green) ![license](https://img.shields.io/badge/license-Apache%202.0-blue)
 
 ---
 

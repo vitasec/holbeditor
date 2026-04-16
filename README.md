@@ -6,6 +6,10 @@ A web-based C code formatter built around the [Betty](https://github.com/alx-too
 
 ---
 
+![Holbeditor screenshot](ss.png)
+
+---
+
 ## What it does
 
 - **Formats C code** to Betty style in one click
